@@ -13,9 +13,9 @@ Refleksi
 - Tidak ada traffic masuk karena tidak ada cara untuk mengakses aplikasi
 
 **Sesudah exposed sebagai Service:**
-- Ketika Anda menjalankan `minikube service hello-node`, aplikasi menjadi dapat diakses melalui browser
-- Setiap kali Anda membuka aplikasi di browser, akan muncul log request HTTP baru
-- Ya, jumlah logs akan bertambah setiap kali Anda mengakses aplikasi karena setiap request HTTP akan tercatat
+- Ketika `minikube service hello-node` dijalankan, aplikasi menjadi dapat diakses melalui browser
+- Setiap kali aplikasi dibuka di browser, akan muncul log request HTTP baru
+- Jumlah log akan bertambah setiap kali dilakukan akses terhadap aplikasi karena setiap request HTTP akan tercatat
 
 Untuk melihat logs:
 ```bash
@@ -40,6 +40,4 @@ kubectl get pods,services -n kube-system
 
 **Mengapa output tidak menampilkan pods/services yang Anda buat?**
 
-Karena pods dan services yang Anda buat secara eksplisit (hello-node) berada di namespace **default**, sedangkan perintah dengan `-n kube-system` hanya menampilkan resource yang ada di namespace **kube-system**.
-
-**Namespace** adalah cara untuk memisahkan dan mengelompokkan resource dalam cluster Kubernetes. Ini seperti folder yang memisahkan aplikasi dan komponen sistem agar tidak tercampur.
+Pods dan Services yang saya buat secara eksplisit (hello-node) tidak ditampilkan karena berada di namespace **default**, sedangkan perintah dengan `-n kube-system` hanya menampilkan resource yang ada di namespace **kube-system**.
