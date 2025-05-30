@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-petclinic-rest
+  labels:
+    app: spring-petclinic-rest
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate  
+  selector:
+    matchLabels:
+      app: spring-petclinic-rest
+  template:
+    metadata:
+      labels:
+        app: spring-petclinic-rest
+    spec:
+      containers:
+      - name: spring-petclinic-rest
+        image: docker.io/springcommunity/spring-petclinic-rest:3.0.2
+        ports:
+        - containerPort: 9966
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
